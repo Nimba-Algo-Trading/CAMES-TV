@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Sports Player sécurisé</title>
+    <style>
+        body {
+            margin: 0;
+            background: #000;
+            color: #00ffff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            margin: 15px 0;
+            font-size: 22px;
+            text-align: center;
+            color: #00ffff;
+        }
+
+        .iframe-container {
+            width: 100%;
+            max-width: 1000px;
+            height: 90vh;
+            border: 2px solid #00ffff55;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 20px #00ffff33;
+            background: #000;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        footer {
+            color: #aaa;
+            font-size: 13px;
+            margin: 10px 0 20px;
+            text-align: center;
+        }
+
+        a {
+            color: #00ffff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .warn {
+            font-size: 13px;
+            color: #ffae00;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>⚽ CAMEES TV BY ALGO </h1>
+
+    <div class="iframe-container">
+        <iframe
+            src="https://a8467db88a3be1d54a735a2da3ee.sokii.shop/player.php?match=match7&key=c0ae1ada6eebd7e6cc5b88b1d2b71547"
+            allowfullscreen sandbox="allow-same-origin allow-scripts" referrerpolicy="no-referrer"></iframe>
+    </div>
+
+    <div class="warn">
+        🔒 .
+    </div>
+
+    <footer>
+        Si le flux ne s’affiche pas,<br>
+        <a href="https://a8467db88a3be1d54a735a2da3ee.sokii.shop/player.php?match=match7&key=c0ae1ada6eebd7e6cc5b88b1d2b71547"
+            target="_blank">
+            clique ici pour l’ouvrir directement
+        </a>.
+    </footer>
+
+    <script>
+        // Petit garde-fou supplémentaire contre les tentatives de popup externes
+        window.open = function () {
+            console.warn("Tentative de popup bloquée !");
+            return null;
+        };
+
+        // Bloque aussi les changements de page non désirés
+        window.onbeforeunload = () => "La redirection a été bloquée.";
+    </script>
+
+</body>
+
+</html>
