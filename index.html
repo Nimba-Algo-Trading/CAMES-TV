@@ -1,96 +1,78 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ALIOU  TV LIVE FOOTBALL</title>
-    <style>
-        body {
-            margin: 0;
-            background: #000;
-            color: #00ffff;
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ALIOU TV LIVE FOOTBALL</title>
 
-        h1 {
-            margin: 15px 0;
-            font-size: 22px;
-            text-align: center;
-            color: #00ffff;
-        }
+  <style>
+    body {
+      margin: 0;
+      background: #000;
+      color: #00ffff;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-        .iframe-container {
-            width: 100%;
-            max-width: 1000px;
-            height: 90vh;
-            border: 2px solid #00ffff55;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 0 20px #00ffff33;
-            background: #000;
-        }
+    h1 {
+      margin: 15px 0;
+      font-size: 22px;
+      text-align: center;
+      color: #00ffff;
+    }
 
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
+    .iframe-container {
+      width: 100%;
+      max-width: 1000px;
+      height: 90vh;
+      border: 2px solid #00ffff55;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 20px #00ffff33;
+      background: #000;
+    }
 
-        footer {
-            color: #aaa;
-            font-size: 13px;
-            margin: 10px 0 20px;
-            text-align: center;
-        }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
 
-        a {
-            color: #00ffff;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        .warn {
-            font-size: 13px;
-            color: #ffae00;
-            margin-top: 5px;
-        }
-    </style>
+    .warn {
+      font-size: 13px;
+      color: #ffae00;
+      margin: 10px 0 20px;
+      text-align: center;
+    }
+  </style>
 </head>
 
 <body>
 
-    <h1>⚽ ALIOU TV FOOTBALL TV  </h1>
+  <h1>⚽ ALIOU TV FOOTBALL TV</h1>
 
-    <div class="iframe-container">
-        <iframe
-            src="https://1.yallaasshoot.cc/ch8.html"
-            allowfullscreen sandbox="allow-same-origin allow-scripts" referrerpolicy="no-referrer"></iframe>
-    </div>
+  <div class="iframe-container">
+    <iframe
+      src="https://1.yallaasshoot.cc/ch8.html"
+      allow="fullscreen; autoplay; encrypted-media; picture-in-picture"
+      allowfullscreen
+      sandbox="allow-same-origin allow-scripts allow-forms allow-presentation"
+      referrerpolicy="no-referrer">
+    </iframe>
+  </div>
 
-    <div class="warn">
-        🔒 By ALIOU
-    </div>
+  <div class="warn">
+    🔒 Sans pubs et popups bloquées
+  </div>
 
-
-
-    <script>
-        // Petit garde-fou supplémentaire contre les tentatives de popup externes
-        window.open = function () {
-            console.warn("Tentative de popup bloquée !");
-            return null;
-        };
-
-        // Bloque aussi les changements de page non désirés
-        window.onbeforeunload = () => "La redirection a été bloquée.";
-    </script>
+  <script>
+    window.open = function () {
+      console.warn("Tentative de popup bloquée !");
+      return null;
+    };
+  </script>
 
 </body>
-
 </html>
