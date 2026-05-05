@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ALIOU TV LIVE FOOTBALL</title>
+  <title>ALIOU TV FOOTBALL</title>
 
   <style>
     body {
@@ -23,50 +23,22 @@
       position: relative;
       width: 100%;
       max-width: 1000px;
-      height: 85vh;
+      aspect-ratio: 16 / 9;
       margin: auto;
-      border: 2px solid #00ffff55;
-      border-radius: 10px;
       overflow: hidden;
-      background: #000;
+      border-radius: 10px;
       box-shadow: 0 0 20px #00ffff33;
+      border: 2px solid #00ffff55;
+      background: #000;
     }
 
     iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-      background: #000;
-    }
-
-    .start-overlay {
       position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.85);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      z-index: 10;
-      cursor: pointer;
-    }
-
-    .start-overlay button {
-      background: #00ffff;
-      color: #000;
+      top: -15%;     /* coupe le haut (score/pub) */
+      left: -10%;    /* coupe côté gauche */
+      width: 120%;   /* zoom */
+      height: 130%;  /* zoom */
       border: none;
-      padding: 14px 25px;
-      font-size: 17px;
-      font-weight: bold;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-
-    .start-overlay p {
-      color: #ffae00;
-      font-size: 13px;
-      margin-top: 12px;
-      padding: 0 15px;
     }
 
     .warn {
@@ -82,48 +54,16 @@
   <h1>⚽ ALIOU TV FOOTBALL</h1>
 
   <div class="iframe-container">
-
     <iframe
+      src="https://1.yallaasshoot.cc/ch8.html"
       allow="autoplay; encrypted-media"
-      allowfullscreen="true"
-      id="streamFrame"
-      frameborder="0"
-      src="about:blank"
-      width="100%">
+      allowfullscreen="true">
     </iframe>
-
-    <div class="start-overlay" id="startOverlay">
-      <button onclick="startStream()">▶ Lancer le direct</button>
-      <p>Si une pub s’ouvre, revenez sur cette page puis relancez la vidéo.</p>
-    </div>
-
   </div>
 
   <div class="warn">
-    🔒 Protection anti-popup activée au maximum possible.
+    🔒 Si une pub s’ouvre, revenez simplement sur la page vidéo.
   </div>
-
-  <script>
-    const iframe = document.getElementById("streamFrame");
-    const overlay = document.getElementById("startOverlay");
-
-    function startStream() {
-      iframe.src = "https://1.yallaasshoot.cc/ch8.html";
-      overlay.style.display = "none";
-    }
-
-    // Bloque les popups déclenchées depuis ta page
-    window.open = function () {
-      console.warn("Popup bloquée !");
-      return null;
-    };
-
-    // Bloque certaines redirections de ta page principale
-    window.addEventListener("beforeunload", function (e) {
-      e.preventDefault();
-      e.returnValue = "";
-    });
-  </script>
 
 </body>
 </html>
