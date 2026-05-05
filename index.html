@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ALIOU TV FOOTBALL</title>
+
+  <!-- ⚡ Accélération réseau -->
+  <link rel="preconnect" href="https://1.yallaasshoot.cc">
+  <link rel="dns-prefetch" href="//1.yallaasshoot.cc">
 
   <style>
     body {
@@ -15,13 +19,13 @@
     }
 
     h1 {
-      margin: 15px 0;
-      font-size: 22px;
+      margin: 12px 0;
+      font-size: 20px;
     }
 
     .player-wrapper {
-      width: 95%;
-      max-width: 1000px;
+      width: 100%;
+      max-width: 900px;
       margin: auto;
     }
 
@@ -30,9 +34,6 @@
       width: 100%;
       aspect-ratio: 16 / 9;
       overflow: hidden;
-      border-radius: 10px;
-      box-shadow: 0 0 20px #00ffff33;
-      border: 2px solid #00ffff55;
       background: #000;
     }
 
@@ -43,136 +44,89 @@
       width: 130%;
       height: 170%;
       border: none;
-      background: #000;
-    }
-
-    .controls {
-      margin: 10px 0;
     }
 
     button {
+      margin-top: 10px;
       background: #00ffff;
       color: #000;
       border: none;
       padding: 10px 18px;
-      border-radius: 8px;
+      border-radius: 6px;
       font-weight: bold;
       cursor: pointer;
-      font-size: 14px;
-    }
-
-    button:hover {
-      opacity: 0.85;
     }
 
     .warn {
-      font-size: 13px;
+      font-size: 12px;
       color: #ffae00;
-      margin: 10px;
+      margin: 8px;
     }
 
-    /* Mode plein écran interne */
-    .fullscreen-mode {
-      position: fixed;
-      inset: 0;
-      width: 100vw;
-      height: 100vh;
-      max-width: none;
-      z-index: 9999;
-      background: #000;
-      padding: 0;
-    }
-
-    .fullscreen-mode .iframe-container {
-      width: 100%;
-      height: 100%;
-      aspect-ratio: auto;
-      border-radius: 0;
-      border: none;
-    }
-
-    .fullscreen-mode iframe {
-      top: -30%;
-      left: -15%;
-      width: 130%;
-      height: 170%;
-    }
-
-    .fullscreen-mode .controls {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      z-index: 10000;
-    }
-
-    .fullscreen-mode h1,
-    .fullscreen-mode .warn {
-      display: none;
-    }
-
+    /* 📱 Mobile ultra léger */
     @media (max-width: 768px) {
-      h1 {
-        font-size: 18px;
-      }
-
-      .player-wrapper {
-        width: 100%;
-      }
-
-      .iframe-container {
-        border-radius: 0;
-        border-left: none;
-        border-right: none;
-      }
-
       iframe {
         top: -28%;
         left: -18%;
-        width: 136%;
+        width: 135%;
         height: 165%;
       }
+    }
+
+    /* 🔥 Mode plein écran interne */
+    .fullscreen {
+      position: fixed;
+      inset: 0;
+      background: #000;
+      z-index: 9999;
+    }
+
+    .fullscreen .iframe-container {
+      height: 100vh;
+      aspect-ratio: auto;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="player-wrapper" id="playerWrapper">
+  <div class="player-wrapper" id="player">
+
     <h1>⚽ ALIOU TV FOOTBALL</h1>
 
     <div class="iframe-container">
+      <!-- ⚡ Chargement différé -->
       <iframe
-        src="https://1.yallaasshoot.cc/ch8.html"
+        id="streamFrame"
+        src="about:blank"
         allow="autoplay; encrypted-media; fullscreen"
         allowfullscreen="true">
       </iframe>
     </div>
 
-    <div class="controls">
-      <button onclick="toggleFullscreen()" id="fullscreenBtn">
-        ⛶ Plein écran
-      </button>
-    </div>
+    <!-- 🎮 Contrôles -->
+    <button onclick="loadStream()">▶ Lancer le direct</button>
+    <button onclick="toggleFullscreen()">⛶ Plein écran</button>
 
     <div class="warn">
       🔒 Si une pub s’ouvre, revenez simplement sur la page vidéo.
     </div>
+
   </div>
 
   <script>
-    const playerWrapper = document.getElementById("playerWrapper");
-    const fullscreenBtn = document.getElementById("fullscreenBtn");
+    function loadStream() {
+      const iframe = document.getElementById("streamFrame");
+
+      // charge seulement au clic (important pour réseau faible)
+      if (iframe.src === "about:blank") {
+        iframe.src = "https://1.yallaasshoot.cc/ch8.html";
+      }
+    }
 
     function toggleFullscreen() {
-      playerWrapper.classList.toggle("fullscreen-mode");
-
-      if (playerWrapper.classList.contains("fullscreen-mode")) {
-        fullscreenBtn.innerText = "↙ Mode réduit";
-        screen.orientation?.lock?.("landscape").catch(() => {});
-      } else {
-        fullscreenBtn.innerText = "⛶ Plein écran";
-        screen.orientation?.unlock?.();
-      }
+      const player = document.getElementById("player");
+      player.classList.toggle("fullscreen");
     }
   </script>
 
