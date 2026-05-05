@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ALIOU TV LIVE</title>
+  <title>ALIOU TV LIVE FOOTBALL</title>
 
   <style>
     body {
@@ -11,31 +11,30 @@
       background: #000;
       color: #00ffff;
       font-family: Arial, sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      text-align: center;
     }
 
     h1 {
       margin: 15px 0;
       font-size: 22px;
-      text-align: center;
     }
 
-    .video-container {
+    .iframe-container {
       width: 100%;
       max-width: 1000px;
-      height: 80vh;
+      height: 85vh;
+      margin: auto;
       border: 2px solid #00ffff55;
       border-radius: 10px;
       overflow: hidden;
-      box-shadow: 0 0 20px #00ffff33;
       background: #000;
+      box-shadow: 0 0 20px #00ffff33;
     }
 
-    video {
+    iframe {
       width: 100%;
       height: 100%;
+      border: none;
       background: #000;
     }
 
@@ -43,7 +42,6 @@
       font-size: 13px;
       color: #ffae00;
       margin: 10px;
-      text-align: center;
     }
   </style>
 </head>
@@ -52,39 +50,19 @@
 
   <h1>⚽ ALIOU TV FOOTBALL</h1>
 
-  <div class="video-container">
-    <video id="video" controls playsinline autoplay></video>
+  <div class="iframe-container">
+    <iframe
+      id="streamFrame"
+      src="https://1.yallaasshoot.cc/ch8.html"
+      allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
+      allowfullscreen
+      referrerpolicy="no-referrer">
+    </iframe>
   </div>
 
   <div class="warn">
-    🔒 Lecture directe sans pubs
+    🔒 Si une pub s’ouvre, revenez simplement sur la page vidéo.
   </div>
-
-  <!-- HLS.js -->
-  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-
-  <script>
-    const video = document.getElementById('video');
-
-    // 🔴 METS TON LIEN .m3u8 ICI
-    const videoSrc = "https://1.yallaasshoot.cc/ch8.html";
-
-    if (video.canPlayType('application/vnd.apple.mpegurl')) {
-      // iPhone / Safari
-      video.src = videoSrc;
-    } else if (Hls.isSupported()) {
-      // PC / Android
-      const hls = new Hls();
-      hls.loadSource(videoSrc);
-      hls.attachMedia(video);
-
-      hls.on(Hls.Events.ERROR, function (event, data) {
-        console.error("Erreur HLS:", data);
-      });
-    } else {
-      alert("Votre navigateur ne supporte pas la lecture vidéo.");
-    }
-  </script>
 
 </body>
 </html>
